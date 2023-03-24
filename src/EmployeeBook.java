@@ -91,4 +91,48 @@ public class EmployeeBook {
         return minSalaryEmployee;
     }
 
+    public static Employee findEmployeeMaxSalary(Employee[] employees, int department) {
+        Employee maxSalaryEmployee = null;
+        double maxSalary = Integer.MIN_VALUE;
+        for (Employee employee : employees) {
+            if (employee.getDepartment() == department && employee.getSalary()> maxSalary) {
+                maxSalary = employee.getSalary();
+                maxSalaryEmployee = employee;
+            }
+        }
+        return maxSalaryEmployee;
+    }
+
+    public static double calculateSumDepartmentSalary(Employee[] employees, int department) {
+        double sumDepartmentSalary = 0;
+        for (Employee employee : employees) {
+            if (employee.getDepartment() == department) {
+                sumDepartmentSalary += employee.getSalary();
+            }
+        }
+        return sumDepartmentSalary;
+    }
+
+    public static double calculateMidlSalaryDepartment(Employee[] employees, int department) {
+        int count = 0;
+        int sum = 0;
+        for (Employee employee : employees) {
+            if (employee.getDepartment() == department) {
+                count++;
+                sum += employee.getSalary();
+            }
+        }
+        return sum / count;
+    }
+
+    public static void indexSalaryDepartment(Employee[] employees, int department, double percent) {
+        for (Employee employee : employees) {
+            if (employee.getDepartment() == department) {
+                double newSalary = employee.getSalary() * (1 + percent / 100);
+                employee.setSalary((int)newSalary);
+            }
+        }
+    }
+
+
 }
