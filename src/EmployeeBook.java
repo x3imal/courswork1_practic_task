@@ -73,13 +73,15 @@ public class EmployeeBook {
     }
 
     public static void indexSalary(Employee[] employees, double percent) {
+        System.out.println("Индексирую зарплату всем сотрудникам на " + percent);
         for (Employee employee : employees) {
-            double newSalary = employee.getSalary() + (1 + percent / 100);
-            employee.setSalary((int) newSalary);
+            double newSalary = employee.getSalary() * (1 + percent / 100);
+            employee.setSalary((int)newSalary);
         }
     }
 
     public static Employee findEmployeeMinSalary(Employee[] employees, int department) {
+        System.out.println("Вывожу сотрудника с минимальной зарплатой в отделе: " + department);
         Employee minSalaryEmployee = null;
         double minSalary = Integer.MAX_VALUE;
         for (Employee employee : employees) {
@@ -92,6 +94,7 @@ public class EmployeeBook {
     }
 
     public static Employee findEmployeeMaxSalary(Employee[] employees, int department) {
+        System.out.println("Вывожу сотрудника с максимальной зарплатой в отделе: " + department);
         Employee maxSalaryEmployee = null;
         double maxSalary = Integer.MIN_VALUE;
         for (Employee employee : employees) {
@@ -104,7 +107,8 @@ public class EmployeeBook {
     }
 
     public static double calculateSumDepartmentSalary(Employee[] employees, int department) {
-        double sumDepartmentSalary = 0;
+        System.out.println("Вывожу сумму затрат в отделе: " + department);
+                double sumDepartmentSalary = 0;
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
                 sumDepartmentSalary += employee.getSalary();
@@ -114,7 +118,8 @@ public class EmployeeBook {
     }
 
     public static double calculateMidlSalaryDepartment(Employee[] employees, int department) {
-        int count = 0;
+        System.out.println("Вывожу среднюю зарплату по отделу: " + department);
+                int count = 0;
         int sum = 0;
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
