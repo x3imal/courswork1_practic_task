@@ -65,5 +65,20 @@ public class Main {
         System.out.println(EmployeeBook.calculateMidlSalaryDepartment(employee, 2) + " руб.");
         System.out.println();
 
+        //Проиндексировать зарплату сотрудников указанного отдела!
+        EmployeeBook.indexSalaryDepartment(employee, 1, 25);
+        System.out.println();
+
+        //Напечатать все данные сотрудников указанного отдела!
+        EmployeeBook.printAllEmployeeDepartment(employee, 2);
+        System.out.println();
+
+        //Найти всех сотрудников с зарплатой меньше указанной!
+        EmployeeBook.findEmployeeWithSmallSalary(employee, 50000);
+        System.out.println();
+
+        //Найти всех сотрудников с зарплатой больше указанной!
+        EmployeeBook.findEmployeeWithBigSalary(employee, 50000);
+
     }
 }
