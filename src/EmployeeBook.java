@@ -4,7 +4,7 @@ public class EmployeeBook {
         System.out.println("Вывод всех данных в БД: ");
         for (Employee employee : employees) {
             if (employee != null) {
-                System.out.print(employee);
+                System.out.print(employee + " руб.");
             }
             System.out.println();
         }
@@ -150,19 +150,19 @@ public class EmployeeBook {
     }
 
     public static void findEmployeeWithSmallSalary(Employee[] employees, int number) {
-        System.out.println("Вывожу сотрудников, у которых зарплата меньше: " + number);
+        System.out.println("Вывожу сотрудников, у которых зарплата меньше: " + number + " руб.");
         for (Employee employee : employees) {
             if (employee.getSalary() < number) {
-                System.out.println(employee.getId() + ". Ф.И.О.: " + employee.getFullName() + ", ЗП: " + employee.getSalary());
+                System.out.println(employee.getId() + ". Ф.И.О.: " + employee.getFullName() + ", ЗП: " + employee.getSalary() + " руб.");
             }
         }
     }
 
     public static void findEmployeeWithBigSalary(Employee[] employees, int number) {
-        System.out.println("Вывожу сотрудников, у которых зарплата больше: " + number);
+        System.out.println("Вывожу сотрудников, у которых зарплата больше: " + number + " руб.");
                 for (Employee employee : employees) {
             if (employee.getSalary() > number) {
-                System.out.println(employee.getId() + ". Ф.И.О.: " + employee.getFullName() + ", ЗП: " + employee.getSalary());
+                System.out.println(employee.getId() + ". Ф.И.О.: " + employee.getFullName() + ", ЗП: " + employee.getSalary() + " руб.");
             }
         }
     }
