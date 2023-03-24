@@ -1,6 +1,7 @@
 public class EmployeeBook {
 
     public static void pintAll(Employee[] employees) {
+        System.out.println("Вывод всех данных в БД: ");
         for (Employee employee : employees) {
             if (employee != null) {
                 System.out.print(employee);

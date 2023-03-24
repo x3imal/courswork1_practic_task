@@ -15,5 +15,11 @@ public class Main {
         employee[8] = new Employee("Стукин Владимир Витальевич", 4, 92000);
         employee[9] = new Employee("Асуров Алексей Валерьевич", 5, 250000);
 
+
+        //Вывести все данные с БД!
+        EmployeeBook.pintAll(employee);
+
+
+
     }
 }
