@@ -134,5 +134,28 @@ public class EmployeeBook {
         }
     }
 
+    public static void printAllEmployeeDepartment(Employee[] employees, int department) {
+        for (Employee employee : employees) {
+            if (employee.getDepartment() == department) {
+                System.out.println(employee.getFullName() + " " + employee.getSalary());
+            }
+        }
+    }
+
+    public static void findEmployeeWithSmallSalary(Employee[] employees, int number) {
+        for (Employee employee : employees) {
+            if (employee.getSalary() < number) {
+                System.out.println(employee.getId() + " " + employee.getFullName() + " " + employee.getSalary());
+            }
+        }
+    }
+
+    public static void findEmployeeWithBigSalary(Employee[] employees, int number) {
+        for (Employee employee : employees) {
+            if (employee.getSalary() > number) {
+                System.out.println(employee.getId() + " " + employee.getFullName() + " " + employee.getSalary());
+            }
+        }
+    }
 
 }
