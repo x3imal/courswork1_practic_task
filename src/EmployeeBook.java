@@ -72,4 +72,23 @@ public class EmployeeBook {
         System.out.println();
     }
 
+    public static void indexSalary(Employee[] employees, double percent) {
+        for (Employee employee : employees) {
+            double newSalary = employee.getSalary() + (1 + percent / 100);
+            employee.setSalary((int) newSalary);
+        }
+    }
+
+    public static Employee findEmployeeMinSalary(Employee[] employees, int department) {
+        Employee minSalaryEmployee = null;
+        double minSalary = Integer.MAX_VALUE;
+        for (Employee employee : employees) {
+            if (employee.getDepartment() == department && employee.getSalary()< minSalary) {
+                minSalary = employee.getSalary();
+                minSalaryEmployee = employee;
+            }
+        }
+        return minSalaryEmployee;
+    }
+
 }
