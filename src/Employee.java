@@ -18,9 +18,6 @@ public class Employee {
         return fullName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
 
     public int getDepartment() {
         return department;
@@ -42,9 +39,6 @@ public class Employee {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String toString() {
         return "ФИО: " + fullName + ". Отдел: " + department + ". Зарплата: " + salary;
