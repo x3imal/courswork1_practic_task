@@ -11,6 +11,7 @@ public class EmployeeBook {
     }
 
     public static int calculateTotalSalary(Employee[] employees) {
+        System.out.println("Вывод суммы всех зарплат в месяц: ");
         int totalSalary = 0;
         for (Employee employee : employees) {
             if (employee != null) {
@@ -21,6 +22,7 @@ public class EmployeeBook {
     }
 
     public static Employee findCalculateMinSalary(Employee[] employees) {
+        System.out.println("Вывожу сотрудника с минимально зарплатой: ");
         Employee min = null;
         for (Employee employee : employees) {
             if (employee != null) {
@@ -33,6 +35,7 @@ public class EmployeeBook {
     }
 
     public static Employee findCalculateMaxSalary(Employee[] employees) {
+        System.out.println("Вывожу сотрудника с максимально зарплатой :");
         Employee max = null;
         for (Employee employee : employees) {
             if (employee != null) {
@@ -45,6 +48,7 @@ public class EmployeeBook {
     }
 
     public static int calculateMidlSalary(Employee[] employees) {
+        System.out.println("Вывожу среднее значение зарплат: ");
         int midlSalary = 0;
         int count = 0;
         for (Employee employee : employees) {
@@ -57,13 +61,15 @@ public class EmployeeBook {
     }
 
     public static void printAllFullName(Employee[] employees) {
+        System.out.println("Вывожу Ф.И.О. всех сотрудников: ");
         int countId = 0;
         for (Employee employee : employees) {
             if (employee != null) {
                 countId++;
-                System.out.print(countId + ". " + employee.getFullName() + ". ");
+                System.out.println(countId + ". " + employee.getFullName() + ". ");
             }
         }
+        System.out.println();
     }
 
 }

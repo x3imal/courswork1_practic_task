@@ -19,7 +19,20 @@ public class Main {
         //Вывести все данные с БД!
         EmployeeBook.pintAll(employee);
 
+        //Получить сумму затрат на зарплаты в месяц!
+        System.out.println(EmployeeBook.calculateTotalSalary(employee) + " руб.");
 
+        //Найти сотрудника с минимальной зарплатой!
+        System.out.println(EmployeeBook.findCalculateMinSalary(employee)+ " руб.");
+
+        //Найти сотрудника с максимальной зарплатой!
+        System.out.println(EmployeeBook.findCalculateMaxSalary(employee) + " руб.");
+
+        //Подсчитать среднее значение зарплат!
+        System.out.println(EmployeeBook.calculateMidlSalary(employee) + " руб.");
+
+        //Получить Ф.И.О. всех сотрудников!
+        EmployeeBook.printAllFullName(employee);
 
     }
 }
