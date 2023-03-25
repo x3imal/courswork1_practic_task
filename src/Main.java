@@ -45,7 +45,7 @@ public class Main {
 
         //Проиндексировать зарплату сотрудников на вводимую величину!
         employeeBook.indexSalary(employeeBook.getEmployee(), 10);
-        employeeBook.pintAll(employeeBook.getEmployee());
+        employeeBook.pintAll(employeeBook.getEmployee()); // выводим для проверки изменения зарплаты после индексации
         System.out.println();
 
         //Найти сотрудника с минимально ЗП по вводимому отделу!
@@ -91,12 +91,12 @@ public class Main {
         //Удаляем выбранного сотрудника
         employeeBook.removeEmployee("Самойлов Константин Викторович", 5);
         System.out.println();
-        employeeBook.pintAll(employeeBook.getEmployee());
+        employeeBook.pintAll(employeeBook.getEmployee()); //выводим БД для проверки удаления сотрудника
 
         //Изменяем зарплату указанного сотрудника
         employeeBook.findEmployeeAndSetSalaryAndDepartment("Никитин Сергей Васильевич", 5, 200000);
         System.out.println();
-        employeeBook.pintAll(employeeBook.getEmployee());
+        employeeBook.pintAll(employeeBook.getEmployee()); // выводим БД для проверки изменения зарплаты сотрудника
 
         //Вывод Ф.И.О всех сотрудников по отделам
         employeeBook.pintAllFullNameWithDepartment(employeeBook.getEmployee());
