@@ -1,8 +1,8 @@
-public class employeeBook {
+public class EmployeeBook {
 
     private Employee[] employees; //создаем приватный массив
 
-    public employeeBook() {
+    public EmployeeBook() {
         this.employees = new Employee[10]; // с помощью конструктора инициализируем массив которой состоит из 10 элементов
     }
 
@@ -252,7 +252,7 @@ public class employeeBook {
         System.out.println("Вывод всех Ф.И.О сотрудников по отделам: ");
         for (Employee employee : employees) {
             if (employee != null) {
-                System.out.print("Отдел: " + employee.getDepartment() + ". Сотрудник: " + employee.getFullName());
+                System.out.println("Отдел: " + employee.getDepartment() + ". Сотрудник: " + employee.getFullName());
             }
         }
         System.out.println();
