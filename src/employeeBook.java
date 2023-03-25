@@ -1,8 +1,8 @@
-public class EmployeeBook {
+public class employeeBook {
 
     private Employee[] employees; //создаем приватный массив
 
-    public EmployeeBook() {
+    public employeeBook() {
         this.employees = new Employee[10]; // с помощью конструктора инициализируем массив которой состоит из 10 элементов
     }
 
@@ -133,9 +133,12 @@ public class EmployeeBook {
     public void indexSalary(Employee[] employees, double percent) {
         System.out.println("Индексирую зарплату всем сотрудникам на " + percent);
         for (Employee employee : employees) {
-            double newSalary = employee.getSalary() * (1 + percent / 100);
-            employee.setSalary((int) newSalary);
+            if (employee != null) {
+                double newSalary = employee.getSalary() * (1 + percent / 100);
+                employee.setSalary((int) newSalary);
+            }
         }
+        System.out.println();
     }
 
     public Employee findEmployeeMinSalary(Employee[] employees, int department) {
