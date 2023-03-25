@@ -13,6 +13,7 @@ public class Main {
        employeeBook.addEmployee("Княжко Виталий Витальевич", 3, 85000);
        employeeBook.addEmployee("Стукин Владимир Витальевич", 4, 92000);
        employeeBook.addEmployee("Асуров Алексей Валерьевич", 5, 250000);
+        System.out.println();
 
 
         //Вывести все данные с БД!
@@ -77,6 +78,29 @@ public class Main {
 
         //Найти всех сотрудников с зарплатой больше указанной!
         employeeBook.findEmployeeWithBigSalary(employeeBook.getEmployee(), 300000);
+        System.out.println();
+
+        //Добавляем нового сотрудника
+        employeeBook.addEmployee("Никитин Сергей Васильевич", 1, 47000);
+        System.out.println();
+
+        //Проверяем на дубликат при создании сотрудника
+        employeeBook.addEmployee("Никитин Сергей Васильевич", 1, 47000);
+        System.out.println();
+
+        //Удаляем выбранного сотрудника
+        employeeBook.removeEmployee("Самойлов Константин Викторович", 5);
+        System.out.println();
+        employeeBook.pintAll(employeeBook.getEmployee());
+
+        //Изменяем зарплату указанного сотрудника
+        employeeBook.findEmployeeAndSetSalaryAndDepartment("Никитин Сергей Васильевич", 5, 200000);
+        System.out.println();
+        employeeBook.pintAll(employeeBook.getEmployee());
+
+        //Вывод Ф.И.О всех сотрудников по отделам
+        employeeBook.pintAllFullNameWithDepartment(employeeBook.getEmployee());
+
 
     }
 }

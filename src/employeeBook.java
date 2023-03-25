@@ -16,6 +16,7 @@ public class employeeBook {
 
     public void addEmployee(String fullName, int department, int salary) {
         //в этом методе мы ищем пустую ячейку и проверяем на сходство параметров на наличие уже идентичного сотрудника.
+        System.out.println("Добавляем нового сотрудника: " + fullName + ", в отдел: " + department + ", с зарплатой: " + salary);
         boolean added = false;
         for (int i = 0; i < this.employees.length; i++) {
             if (this.employees[i] != null) {
@@ -37,24 +38,33 @@ public class employeeBook {
 
     public void removeEmployee(String fullName, int id) {
         //принимает ФИО и id сотрудника, которого нужно удалить.
+        System.out.println("Удаляем выбранного сотрудника: " + fullName);
         for (int i = 0; i < this.employees.length; i++) {
-            if (employees[i] != null && (employees[i].getFullName().equals(fullName) || employees[i].getId() == id)) { //ведем поиск на сходство заданных параметров и обнуляем ячейку если нашелся сотрудник.
+            if (employees[i] != null && (employees[i].getFullName().equals(fullName) || employees[i].getId() + 1 == id)) { //ведем поиск на сходство заданных параметров и обнуляем ячейку если нашелся сотрудник.
                 employees[i] = null;
                 break;
             }
         }
     }
 
-    public void findEmployeeAndSetSalaryAndDepartment(String fullName, int newSalary, int newDepartment) {
+    public void findEmployeeAndSetSalaryAndDepartment(String fullName, int newDepartment, int newSalary) {
+        //принимает ФИО и модернизирует его зарплату и отдел
+        boolean findOk = false;
+        System.out.println("Принимаю изменения к сотруднику: " + fullName);
         for (int i = 0; i < this.employees.length; i++) {
             if (this.employees[i] != null && this.employees[i].getFullName().equals(fullName)) {
+                findOk = true;
                 this.employees[i].setSalary(newSalary);
                 this.employees[i].setDepartment(newDepartment);
                 break;
-            } else {
-                System.out.println("Нет такого сотрудника");
+            } else if(this.employees == null) {
+                System.out.println("Неправильно введены данные сотрудника.");
             }
         }
+        if (!findOk) {
+            System.out.println("Нет такого сотрудника.");
+        }
+
     }
 
 
@@ -236,6 +246,16 @@ public class employeeBook {
         if (a == 0) {
             System.out.println("Таких сотрудников нет.");
         }
+    }
+
+    public void pintAllFullNameWithDepartment(Employee[] employees) {
+        System.out.println("Вывод всех Ф.И.О сотрудников по отделам: ");
+        for (Employee employee : employees) {
+            if (employee != null) {
+                System.out.print("Отдел: " + employee.getDepartment() + ". Сотрудник: " + employee.getFullName());
+            }
+        }
+        System.out.println();
     }
 
 }
