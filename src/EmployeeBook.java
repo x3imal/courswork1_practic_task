@@ -50,10 +50,10 @@ public class EmployeeBook {
         System.out.println("Вывод всех данных в БД: ");
         for (Employee employee : employees) {
             if (employee != null) {
-                System.out.print(employee + " руб.");
+                System.out.println(employee + " руб.");
             }
-            System.out.println();
         }
+        System.out.println();
     }
 
     public int calculateTotalSalary(Employee[] employees) {
