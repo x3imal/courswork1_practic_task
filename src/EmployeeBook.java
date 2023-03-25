@@ -57,7 +57,7 @@ public class EmployeeBook {
                 this.employees[i].setSalary(newSalary);
                 this.employees[i].setDepartment(newDepartment);
                 break;
-            } else if(this.employees == null) {
+            } else if (this.employees == null) {
                 System.out.println("Неправильно введены данные сотрудника.");
             }
         }
@@ -250,12 +250,16 @@ public class EmployeeBook {
 
     public void pintAllFullNameWithDepartment(Employee[] employees) {
         System.out.println("Вывод всех Ф.И.О сотрудников по отделам: ");
+        int department = 0;
         for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() != department) {
+                System.out.println("Отдел: " + employee.getDepartment());
+                department = employee.getDepartment();
+            }
             if (employee != null) {
-                System.out.println("Отдел: " + employee.getDepartment() + ". Сотрудник: " + employee.getFullName());
+                System.out.println("Ф.И.О: " + employee.getFullName());
             }
         }
-        System.out.println();
     }
 
 }
