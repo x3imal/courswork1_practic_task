@@ -1,6 +1,52 @@
 public class EmployeeBook {
 
-    public static void pintAll(Employee[] employees) {
+    private Employee[] employees; //создаем приватный массив
+
+    public EmployeeBook() {
+        this.employees = new Employee[10]; // с помощью конструктора инициализируем массив которой состоит из 10 элементов
+    }
+
+    public Employee[] getEmployee() { //получаем доступ к массиву с помощью метода геттера
+        return employees;
+    }
+
+    public void setEmployee(Employee[] employees) {
+        this.employees = employees;
+    }
+
+    public void addEmployee(String fullName, int department, int salary) {
+        //в этом методе мы ищем пустую ячейку и проверяем на сходство параметров на наличие уже идентичного сотрудника.
+        boolean added = false;
+        for (int i = 0; i < this.employees.length; i++) {
+            if (this.employees[i] != null) {
+                if (this.employees[i].getFullName().equals(fullName) && this.employees[i].getDepartment() == department && this.employees[i].getSalary() == salary) {
+                    System.out.println("Такой сотрудник уже есть");
+                    added = true;
+                    break;
+                }
+            } else {
+                this.employees[i] = new Employee(fullName, department, salary);
+                added = true;
+                break;
+            }
+        }
+        if (!added) {
+            System.out.println("Нельзя добавить сотрудника, все ячейки заняты");
+        }
+    }
+
+    public void removeEmployee(String fullName, int id) {
+        //принимает ФИО и id сотрудника, которого нужно удалить.
+        for (int i = 0; i < this.employees.length; i++) {
+            if (employees[i] != null && (employees[i].getFullName().equals(fullName) || employees[i].getId() == id)) { //ведем поиск на сходство заданных параметров и обнуляем ячейку если нашелся сотрудник.
+                employees[i] = null;
+                break;
+            }
+        }
+    }
+
+
+    public void pintAll(Employee[] employees) {
         System.out.println("Вывод всех данных в БД: ");
         for (Employee employee : employees) {
             if (employee != null) {
@@ -10,7 +56,7 @@ public class EmployeeBook {
         }
     }
 
-    public static int calculateTotalSalary(Employee[] employees) {
+    public int calculateTotalSalary(Employee[] employees) {
         System.out.println("Вывод суммы всех зарплат в месяц: ");
         int totalSalary = 0;
         for (Employee employee : employees) {
@@ -21,7 +67,7 @@ public class EmployeeBook {
         return totalSalary;
     }
 
-    public static Employee findCalculateMinSalary(Employee[] employees) {
+    public Employee findCalculateMinSalary(Employee[] employees) {
         System.out.println("Вывожу сотрудника с минимально зарплатой: ");
         Employee min = null;
         for (Employee employee : employees) {
@@ -34,7 +80,7 @@ public class EmployeeBook {
         return min;
     }
 
-    public static Employee findCalculateMaxSalary(Employee[] employees) {
+    public Employee findCalculateMaxSalary(Employee[] employees) {
         System.out.println("Вывожу сотрудника с максимально зарплатой :");
         Employee max = null;
         for (Employee employee : employees) {
@@ -47,7 +93,7 @@ public class EmployeeBook {
         return max;
     }
 
-    public static int calculateMidlSalary(Employee[] employees) {
+    public int calculateMidlSalary(Employee[] employees) {
         System.out.println("Вывожу среднее значение зарплат: ");
         int midlSalary = 0;
         int count = 0;
@@ -60,7 +106,7 @@ public class EmployeeBook {
         return midlSalary / count;
     }
 
-    public static void printAllFullName(Employee[] employees) {
+    public void printAllFullName(Employee[] employees) {
         System.out.println("Вывожу Ф.И.О. всех сотрудников: ");
         int countId = 0;
         for (Employee employee : employees) {
@@ -72,7 +118,7 @@ public class EmployeeBook {
         System.out.println();
     }
 
-    public static void indexSalary(Employee[] employees, double percent) {
+    public void indexSalary(Employee[] employees, double percent) {
         System.out.println("Индексирую зарплату всем сотрудникам на " + percent);
         for (Employee employee : employees) {
             double newSalary = employee.getSalary() * (1 + percent / 100);
@@ -80,7 +126,7 @@ public class EmployeeBook {
         }
     }
 
-    public static Employee findEmployeeMinSalary(Employee[] employees, int department) {
+    public Employee findEmployeeMinSalary(Employee[] employees, int department) {
         System.out.println("Вывожу сотрудника с минимальной зарплатой в отделе: " + department);
         Employee minSalaryEmployee = null;
         double minSalary = Integer.MAX_VALUE;
@@ -93,7 +139,7 @@ public class EmployeeBook {
         return minSalaryEmployee;
     }
 
-    public static Employee findEmployeeMaxSalary(Employee[] employees, int department) {
+    public Employee findEmployeeMaxSalary(Employee[] employees, int department) {
         System.out.println("Вывожу сотрудника с максимальной зарплатой в отделе: " + department);
         Employee maxSalaryEmployee = null;
         double maxSalary = Integer.MIN_VALUE;
@@ -106,7 +152,7 @@ public class EmployeeBook {
         return maxSalaryEmployee;
     }
 
-    public static double calculateSumDepartmentSalary(Employee[] employees, int department) {
+    public double calculateSumDepartmentSalary(Employee[] employees, int department) {
         System.out.println("Вывожу сумму затрат в отделе: " + department);
         double sumDepartmentSalary = 0;
         for (Employee employee : employees) {
@@ -117,7 +163,7 @@ public class EmployeeBook {
         return sumDepartmentSalary;
     }
 
-    public static double calculateMidlSalaryDepartment(Employee[] employees, int department) {
+    public double calculateMidlSalaryDepartment(Employee[] employees, int department) {
         System.out.println("Вывожу среднюю зарплату по отделу: " + department);
         int count = 0;
         int sum = 0;
@@ -130,7 +176,7 @@ public class EmployeeBook {
         return sum / count;
     }
 
-    public static void indexSalaryDepartment(Employee[] employees, int department, double percent) {
+    public void indexSalaryDepartment(Employee[] employees, int department, double percent) {
         System.out.println("Индексирую зарплату по указанному отделу: " + department + ", на процент " + percent);
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
@@ -140,7 +186,7 @@ public class EmployeeBook {
         }
     }
 
-    public static void printAllEmployeeDepartment(Employee[] employees, int department) {
+    public void printAllEmployeeDepartment(Employee[] employees, int department) {
         System.out.println("Вывожу данные сотрудников по указанному отделу: " + department);
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
@@ -149,7 +195,7 @@ public class EmployeeBook {
         }
     }
 
-    public static void findEmployeeWithSmallSalary(Employee[] employees, int number) {
+    public void findEmployeeWithSmallSalary(Employee[] employees, int number) {
         System.out.println("Вывожу сотрудников, у которых зарплата меньше: " + number + " руб.");
         for (Employee employee : employees) {
             if (employee.getSalary() < number) {
@@ -158,9 +204,9 @@ public class EmployeeBook {
         }
     }
 
-    public static void findEmployeeWithBigSalary(Employee[] employees, int number) {
+    public void findEmployeeWithBigSalary(Employee[] employees, int number) {
         System.out.println("Вывожу сотрудников, у которых зарплата больше: " + number + " руб.");
-                for (Employee employee : employees) {
+        for (Employee employee : employees) {
             if (employee.getSalary() > number) {
                 System.out.println(employee.getId() + ". Ф.И.О.: " + employee.getFullName() + ", ЗП: " + employee.getSalary() + " руб.");
             }
