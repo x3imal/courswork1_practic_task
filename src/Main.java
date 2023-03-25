@@ -47,36 +47,36 @@ public class Main {
         employeeBook.pintAll(employeeBook.getEmployee());
         System.out.println();
 
-//        //Найти сотрудника с минимально ЗП по вводимому отделу!
-//        System.out.println(employeeBook.findEmployeeMinSalary(employee, 1) + " руб.");
-//        System.out.println();
-//
-//        //Найти сотрудника с максимальной ЗП по вводимому отделу!
-//        System.out.println(employeeBook.findEmployeeMaxSalary(employee, 2) + " руб.");
-//        System.out.println();
-//
-//        //Найти сумму затрат по вводимому отделу!
-//        System.out.println(employeeBook.calculateSumDepartmentSalary(employee, 2) + " руб.");
-//        System.out.println();
-//
-//        //Найти среднюю зарплату по отделу!
-//        System.out.println(employeeBook.calculateMidlSalaryDepartment(employee, 2) + " руб.");
-//        System.out.println();
-//
-//        //Проиндексировать зарплату сотрудников указанного отдела!
-//        employeeBook.indexSalaryDepartment(employee, 1, 25);
-//        System.out.println();
-//
-//        //Напечатать все данные сотрудников указанного отдела!
-//        employeeBook.printAllEmployeeDepartment(employee, 2);
-//        System.out.println();
-//
-//        //Найти всех сотрудников с зарплатой меньше указанной!
-//        employeeBook.findEmployeeWithSmallSalary(employee, 50000);
-//        System.out.println();
-//
-//        //Найти всех сотрудников с зарплатой больше указанной!
-//        employeeBook.findEmployeeWithBigSalary(employee, 50000);
+        //Найти сотрудника с минимально ЗП по вводимому отделу!
+        System.out.println(employeeBook.findEmployeeMinSalary(employeeBook.getEmployee(), 1) + " руб.");
+        System.out.println();
+
+        //Найти сотрудника с максимальной ЗП по вводимому отделу!
+        System.out.println(employeeBook.findEmployeeMaxSalary(employeeBook.getEmployee(), 2) + " руб.");
+        System.out.println();
+
+        //Найти сумму затрат по вводимому отделу!
+        System.out.println(employeeBook.calculateSumDepartmentSalary(employeeBook.getEmployee(), 2) + " руб.");
+        System.out.println();
+
+        //Найти среднюю зарплату по отделу!
+        System.out.println(employeeBook.calculateMidlSalaryDepartment(employeeBook.getEmployee(),  2) + " руб.");
+        System.out.println();
+
+        //Проиндексировать зарплату сотрудников указанного отдела!
+        employeeBook.indexSalaryDepartment(employeeBook.getEmployee(), 1, 25);
+        System.out.println();
+
+        //Напечатать все данные сотрудников указанного отдела!
+        employeeBook.printAllEmployeeDepartment(employeeBook.getEmployee(), 1);
+        System.out.println();
+
+        //Найти всех сотрудников с зарплатой меньше указанной!
+        employeeBook.findEmployeeWithSmallSalary(employeeBook.getEmployee(), 50000);
+        System.out.println();
+
+        //Найти всех сотрудников с зарплатой больше указанной!
+        employeeBook.findEmployeeWithBigSalary(employeeBook.getEmployee(), 300000);
 
     }
 }

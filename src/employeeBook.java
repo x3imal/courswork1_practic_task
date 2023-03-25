@@ -146,7 +146,7 @@ public class employeeBook {
         Employee minSalaryEmployee = null;
         double minSalary = Integer.MAX_VALUE;
         for (Employee employee : employees) {
-            if (employee.getDepartment() == department && employee.getSalary() < minSalary) {
+            if (employee != null && employee.getDepartment() == department && employee.getSalary() < minSalary) {
                 minSalary = employee.getSalary();
                 minSalaryEmployee = employee;
             }
@@ -159,7 +159,7 @@ public class employeeBook {
         Employee maxSalaryEmployee = null;
         double maxSalary = Integer.MIN_VALUE;
         for (Employee employee : employees) {
-            if (employee.getDepartment() == department && employee.getSalary() > maxSalary) {
+            if (employee != null && employee.getDepartment() == department && employee.getSalary() > maxSalary) {
                 maxSalary = employee.getSalary();
                 maxSalaryEmployee = employee;
             }
@@ -171,7 +171,7 @@ public class employeeBook {
         System.out.println("Вывожу сумму затрат в отделе: " + department);
         double sumDepartmentSalary = 0;
         for (Employee employee : employees) {
-            if (employee.getDepartment() == department) {
+            if (employee != null && employee.getDepartment() == department) {
                 sumDepartmentSalary += employee.getSalary();
             }
         }
@@ -183,7 +183,7 @@ public class employeeBook {
         int count = 0;
         int sum = 0;
         for (Employee employee : employees) {
-            if (employee.getDepartment() == department) {
+            if (employee != null && employee.getDepartment() == department) {
                 count++;
                 sum += employee.getSalary();
             }
@@ -194,7 +194,7 @@ public class employeeBook {
     public void indexSalaryDepartment(Employee[] employees, int department, double percent) {
         System.out.println("Индексирую зарплату по указанному отделу: " + department + ", на процент " + percent);
         for (Employee employee : employees) {
-            if (employee.getDepartment() == department) {
+            if (employee != null && employee.getDepartment() == department) {
                 double newSalary = employee.getSalary() * (1 + percent / 100);
                 employee.setSalary((int) newSalary);
             }
@@ -204,7 +204,7 @@ public class employeeBook {
     public void printAllEmployeeDepartment(Employee[] employees, int department) {
         System.out.println("Вывожу данные сотрудников по указанному отделу: " + department);
         for (Employee employee : employees) {
-            if (employee.getDepartment() == department) {
+            if (employee != null && employee.getDepartment() == department) {
                 System.out.println("Ф.И.О.: " + employee.getFullName() + ", ЗП: " + employee.getSalary() + " руб.");
             }
         }
@@ -212,19 +212,29 @@ public class employeeBook {
 
     public void findEmployeeWithSmallSalary(Employee[] employees, int number) {
         System.out.println("Вывожу сотрудников, у которых зарплата меньше: " + number + " руб.");
+        int a = 0; // сделал по подобию Юрия, чтоб можно было контролировать количество сотрудников соответствующих условию
         for (Employee employee : employees) {
-            if (employee.getSalary() < number) {
-                System.out.println(employee.getId() + ". Ф.И.О.: " + employee.getFullName() + ", ЗП: " + employee.getSalary() + " руб.");
+            if (employee != null && employee.getSalary() < number) {
+                System.out.println(employee.getId() + 1 + ". Ф.И.О.: " + employee.getFullName() + ", ЗП: " + employee.getSalary() + " руб.");
+                a++;
             }
+        }
+        if (a == 0) {
+            System.out.println("Таких сотрудников нет");
         }
     }
 
     public void findEmployeeWithBigSalary(Employee[] employees, int number) {
+        int a = 0; // сделал по подобию Юрия, чтоб можно было контролировать количество сотрудников соответствующих условию
         System.out.println("Вывожу сотрудников, у которых зарплата больше: " + number + " руб.");
         for (Employee employee : employees) {
-            if (employee.getSalary() > number) {
-                System.out.println(employee.getId() + ". Ф.И.О.: " + employee.getFullName() + ", ЗП: " + employee.getSalary() + " руб.");
+            if (employee != null && employee.getSalary() > number) {
+                System.out.println(employee.getId() + 1 + ". Ф.И.О.: " + employee.getFullName() + ", ЗП: " + employee.getSalary() + " руб.");
+                a++;
             }
+        }
+        if (a == 0) {
+            System.out.println("Таких сотрудников нет.");
         }
     }
 
