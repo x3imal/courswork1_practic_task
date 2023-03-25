@@ -10,9 +10,9 @@ public class Main {
        employeeBook.addEmployee("Буйнов Александр Александрович", 2, 48000);
        employeeBook.addEmployee("Самойлов Константин Викторович",2, 50000);
        employeeBook.addEmployee("Петрушкин Сергей Николаевич", 2, 51000);
-       //employeeBook.addEmployee("Княжко Виталий Витальевич", 3, 85000);
-       //employeeBook.addEmployee("Стукин Владимир Витальевич", 4, 92000);
-       //employeeBook.addEmployee("Асуров Алексей Валерьевич", 5, 250000);
+       employeeBook.addEmployee("Княжко Виталий Витальевич", 3, 85000);
+       employeeBook.addEmployee("Стукин Владимир Витальевич", 4, 92000);
+       employeeBook.addEmployee("Асуров Алексей Валерьевич", 5, 250000);
 
 
         //Вывести все данные с БД!
@@ -23,9 +23,9 @@ public class Main {
         System.out.println(employeeBook.calculateTotalSalary(employeeBook.getEmployee()) + " руб.");
         System.out.println();
 
-//        //Найти сотрудника с минимальной зарплатой!
-//        System.out.println(EmployeeBook.findCalculateMinSalary(employee)+ " руб.");
-//        System.out.println();
+        //Найти сотрудника с минимальной зарплатой!
+        System.out.println(employeeBook.findCalculateMinSalary(employeeBook.getEmployee())+ " руб.");
+        System.out.println();
 //
 //
 //        //Найти сотрудника с максимальной зарплатой!

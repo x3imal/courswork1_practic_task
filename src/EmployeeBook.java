@@ -8,7 +8,7 @@ public class EmployeeBook {
 
     public Employee[] getEmployee() { //получаем доступ к массиву с помощью метода геттера
         return employees;
-    }
+    } //конструктор поля EmployeeBook
 
     public void setEmployee(Employee[] employees) {
         this.employees = employees;
@@ -41,6 +41,18 @@ public class EmployeeBook {
             if (employees[i] != null && (employees[i].getFullName().equals(fullName) || employees[i].getId() == id)) { //ведем поиск на сходство заданных параметров и обнуляем ячейку если нашелся сотрудник.
                 employees[i] = null;
                 break;
+            }
+        }
+    }
+
+    public void findEmployeeAndSetSalaryAndDepartment(String fullName, int newSalary, int newDepartment) {
+        for (int i = 0; i < this.employees.length; i++) {
+            if (this.employees[i] != null && this.employees[i].getFullName().equals(fullName)) {
+                this.employees[i].setSalary(newSalary);
+                this.employees[i].setDepartment(newDepartment);
+                break;
+            } else {
+                System.out.println("Нет такого сотрудника");
             }
         }
     }
